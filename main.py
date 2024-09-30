@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 import logging
+import sys
 from bs4 import BeautifulSoup
 
 from datetime import datetime
@@ -24,6 +25,9 @@ def main():
     result_html = get_results_data(number, 30)
     result_soup = BeautifulSoup(result_html, 'html.parser')
 
+    result_body = result_soup.find('matchList')
+
+    log_info('RESULT BODY: {}'.format(result_body))
     
     
 
