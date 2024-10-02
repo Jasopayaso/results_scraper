@@ -12,7 +12,7 @@ def main():
     log_info('STARTING JOB:', datetime.now().strftime("%Y-%m-%d_%H-%M-%S"))
 
     #number that goes into link
-    number = 1 
+    number = 719
     log_info('GETTING RESULT PAGE:' , number)
 
     '''
@@ -22,13 +22,20 @@ def main():
     '''
 
     #html and beautiful soup for results
-    result_html = get_results_data(number, 30)
+    result_html = get_results_data(number, 15)
     result_soup = BeautifulSoup(result_html, 'html.parser')
+    result_body = result_soup.find(class_ = 'match-fixture')
+    result_body_text = result_body.text
 
-    result_body = result_soup.find('matchList')
+    result = [word for word in result_body_text.split() if word]
+    home_team = result[0]
+    away_team = result[3]
 
-    log_info('RESULT BODY: {}'.format(result_body))
-    
+    log_info('RESULT BODY: {}'.format(result_body_text))
+    log_info('RESULT: {}'.format(result))
+    log_info('HOME TEAM: {}'.format(home_team))
+    log_info('AWAY TEAM: {}'.format(away_team))
+ 
     
 
 if __name__ == "__main__":
