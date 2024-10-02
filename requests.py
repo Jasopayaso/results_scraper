@@ -5,7 +5,7 @@ from logger import log_info
 from conf import Config
 
 from selenium import webdriver
-from selenium.webdriver.chrome.options import Options as ChromeOptions\
+from selenium.webdriver.chrome.options import Options as ChromeOptions
 
 
 def get_results_data(page_id, sleep):
