@@ -29,12 +29,16 @@ def main():
 
     result = [word for word in result_body_text.split() if word]
     home_team = result[0]
+    home_score = result[2][0]
     away_team = result[3]
+    away_score = result[2][2]
 
     log_info('RESULT BODY: {}'.format(result_body_text))
     log_info('RESULT: {}'.format(result))
     log_info('HOME TEAM: {}'.format(home_team))
     log_info('AWAY TEAM: {}'.format(away_team))
+    log_info('HOME SCORE: {}'.format(home_score))
+    log_info('AWAY SCORE: {}'.format(away_score))
  
     
 
